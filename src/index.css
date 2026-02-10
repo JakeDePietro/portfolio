@@ -280,8 +280,6 @@ h1 {
   display: block;
 }
 
-
-
 @media (max-width: 900px) {
   .projectSlide {
     grid-template-columns: 1fr;
@@ -290,5 +288,80 @@ h1 {
   }
   .projectText {
     text-align: center;
+  }
+}
+
+.resumeImage {
+  width: min(900px, 92%);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* ========= Mobile fixes (desktop unchanged) ========= */
+@media (max-width: 600px) {
+  /* Stop any accidental sideways scroll */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* --- Navbar: reflow into 2 rows instead of 3 tight columns --- */
+  .navBarContent {
+    height: auto;
+    padding: 10px 12px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right"
+      "center center";
+    row-gap: 8px;
+  }
+
+  .navBarLeft  { grid-area: left;  justify-content: flex-start; }
+  .navBarRight { grid-area: right; justify-content: flex-end; }
+  .navBarCenter {
+    grid-area: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navBarCenterContent {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  /* --- Hero: allow wrapping + reduce size so it fits --- */
+  .heroThing h1 {
+    font-size: 2.2rem;
+    overflow-wrap: anywhere; /* forces wrap if needed */
+    word-break: break-word;
+  }
+  .heroThing h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Keep your existing hero stacking; just tighten spacing */
+  .page { padding: 16px; }
+  .heroThing { padding: 44px 0; }
+
+  /* --- Projects: single column so nothing pushes width --- */
+  .projectsStack { scroll-snap-type: none; } /* optional but feels better on phones */
+
+  .projectSlide {
+    grid-template-columns: 1fr;
+    padding: 36px 16px;
+    gap: 18px;
+    min-height: auto;
+  }
+
+  .projectText { text-align: center; }
+  .projectImage { width: min(520px, 100%); }
+
+  /* Resume image: never exceed screen width */
+  .resumeImage {
+    max-width: 100%;
+    height: auto;
   }
 }

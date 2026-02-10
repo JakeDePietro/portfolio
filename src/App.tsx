@@ -5,6 +5,7 @@ import cargo from "./assets/cargo.png";
 import networkmonitor from "./assets/networkmonitor.png";
 import transformer from "./assets/transformer.png";
 import knn from "./assets/knn.png";
+import resume from "./assets/resume.png";
 
 export default function App() {
   return (
@@ -75,9 +76,7 @@ export default function App() {
     <div className="heroThing">
       <h1> Resume: </h1>
     </div>
-    <div className="resumeStyleThing">
-      <iframe src="/src/assets/resume.pdf" title="Resume" />
-    </div>
+    <img className="resumeImage" src={resume} alt="Resume" />
   </section>
 
   <section className="sectionThing" id="contact">
