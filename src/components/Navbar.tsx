@@ -12,7 +12,7 @@ export default function Navbar() {
       <nav className="navBarContent">
 
         <div className="navBarLeft" style={{textAlign: 'center'}}>
-          <a className="navBarLeftContent" href="/portfolio/">
+          <a className="navBarLeftContent" href="/">
             Jake DePietro
           </a>
         </div>
